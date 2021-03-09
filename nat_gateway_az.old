@@ -1,0 +1,81 @@
+##############################################################################################
+### AZ1
+resource "aws_nat_gateway" "nat_gtw_prod_public_subnet_az1" {
+  subnet_id = aws_subnet.prod_public_subnet_az1.id
+  allocation_id = aws_eip.nat_eip_prod_az1.id
+
+  tags = {
+    Name             = "nat_gtw_prod_subnet_az1"
+    CentroDeCusto    = var.centro_de_custo
+    Proprietario     = var.proprietario
+    ChamadoInterno   = var.chamado_interno
+    Ambiente         = var.ambiente
+    Projeto          = var.projeto
+    vpc              = var.vpc
+    ResponsavelInfra = var.responsavel_infra
+    Critico          = true
+    DataCriacao      = var.data_criacao
+    DataAlteracao    = formatdate("DD-MM-YYYY-hh-mm-ss", timeadd(timestamp(), "-3h"))
+    Sensibilidade    = "5"
+    Criptografado    = false
+  }
+
+  depends_on = [aws_internet_gateway.internet_gateway]
+
+}
+
+
+
+##############################################################################################
+### AZ2
+resource "aws_nat_gateway" "nat_gtw_prod_public_subnet_az2" {
+  subnet_id = aws_subnet.prod_public_subnet_az2.id
+  allocation_id = aws_eip.nat_eip_prod_az2.id
+
+  tags = {
+    Name             = "nat_gtw_prod_subnet_az2"
+    CentroDeCusto    = var.centro_de_custo
+    Proprietario     = var.proprietario
+    ChamadoInterno   = var.chamado_interno
+    Ambiente         = var.ambiente
+    Projeto          = var.projeto
+    vpc              = var.vpc
+    ResponsavelInfra = var.responsavel_infra
+    Critico          = true
+    DataCriacao      = var.data_criacao
+    DataAlteracao    = formatdate("DD-MM-YYYY-hh-mm-ss", timeadd(timestamp(), "-3h"))
+    Sensibilidade    = "5"
+    Criptografado    = false
+  }
+
+  depends_on = [aws_internet_gateway.internet_gateway]
+
+}
+
+
+
+##############################################################################################
+### AZ3
+resource "aws_nat_gateway" "nat_gtw_prod_public_subnet_az3" {
+  subnet_id = aws_subnet.prod_public_subnet_az3.id
+  allocation_id = aws_eip.nat_eip_prod_az3.id
+
+  tags = {
+    Name             = "nat_gtw_prod_subnet_az3"
+    CentroDeCusto    = var.centro_de_custo
+    Proprietario     = var.proprietario
+    ChamadoInterno   = var.chamado_interno
+    Ambiente         = var.ambiente
+    Projeto          = var.projeto
+    vpc              = var.vpc
+    ResponsavelInfra = var.responsavel_infra
+    Critico          = true
+    DataCriacao      = var.data_criacao
+    DataAlteracao    = formatdate("DD-MM-YYYY-hh-mm-ss", timeadd(timestamp(), "-3h"))
+    Sensibilidade    = "5"
+    Criptografado    = false
+  }
+
+  depends_on = [aws_internet_gateway.internet_gateway]
+
+}

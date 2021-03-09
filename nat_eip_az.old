@@ -1,0 +1,69 @@
+##############################################################################################
+### AZ1
+resource "aws_eip" "nat_eip_prod_az1" {
+  vpc = true
+
+  tags = {
+    Name             = "nat_eip_prod_az1"
+    CentroDeCusto    = var.centro_de_custo
+    Proprietario     = var.proprietario
+    ChamadoInterno   = var.chamado_interno
+    Ambiente         = var.ambiente
+    Projeto          = var.projeto
+    vpc              = var.vpc
+    ResponsavelInfra = var.responsavel_infra
+    Critico          = true
+    DataCriacao      = var.data_criacao
+    DataAlteracao    = formatdate("DD-MM-YYYY-hh-mm-ss", timeadd(timestamp(), "-3h"))
+    Sensibilidade    = "5"
+    Criptografado    = false
+  }
+}
+
+
+
+##############################################################################################
+### AZ2
+resource "aws_eip" "nat_eip_prod_az2" {
+  vpc = true
+
+  tags = {
+    Name             = "nat_eip_prod_az2"
+    CentroDeCusto    = var.centro_de_custo
+    Proprietario     = var.proprietario
+    ChamadoInterno   = var.chamado_interno
+    Ambiente         = var.ambiente
+    Projeto          = var.projeto
+    vpc              = var.vpc
+    ResponsavelInfra = var.responsavel_infra
+    Critico          = true
+    DataCriacao      = var.data_criacao
+    DataAlteracao    = formatdate("DD-MM-YYYY-hh-mm-ss", timeadd(timestamp(), "-3h"))
+    Sensibilidade    = "5"
+    Criptografado    = false
+  }
+}
+
+
+
+##############################################################################################
+### AZ3
+resource "aws_eip" "nat_eip_prod_az3" {
+  vpc = true
+
+  tags = {
+    Name             = "nat_eip_prod_az3"
+    CentroDeCusto    = var.centro_de_custo
+    Proprietario     = var.proprietario
+    ChamadoInterno   = var.chamado_interno
+    Ambiente         = var.ambiente
+    Projeto          = var.projeto
+    vpc              = var.vpc
+    ResponsavelInfra = var.responsavel_infra
+    Critico          = true
+    DataCriacao      = var.data_criacao
+    DataAlteracao    = formatdate("DD-MM-YYYY-hh-mm-ss", timeadd(timestamp(), "-3h"))
+    Sensibilidade    = "5"
+    Criptografado    = false
+  }
+}
