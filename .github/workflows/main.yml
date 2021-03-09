@@ -1,0 +1,95 @@
+name: CI
+on: [push]
+
+jobs:
+  terraform-init:
+    runs-on: ubuntu-latest
+    container:
+      image: fredsilvas/container_terraform_aws_cli
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Terraform Init
+        run: terraform init
+        continue-on-error: false
+      - name: Cache Terraform
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: terraform-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: terraform-${{ runner.os }}-
+      - name: Cache mix
+        uses: actions/cache@v2
+        with:
+          path: public
+          key: mix-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: mix-${{ runner.os }}-
+
+  terraform-validate:
+    runs-on: ubuntu-latest
+    needs: [terraform-init]
+    container:
+      image: fredsilvas/container_terraform_aws_cli
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore Cache Terraform
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: terraform-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: terraform-${{ runner.os }}-
+      - name: Restore Cache mix
+        uses: actions/cache@v2
+        with:
+          path: public
+          key: mix-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: mix-${{ runner.os }}-
+      - name: Run Terraform Validate
+        run: terraform validate
+
+  terraform-plan:
+    runs-on: ubuntu-latest
+    needs: [terraform-validate]
+    container:
+      image: fredsilvas/container_terraform_aws_cli
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore Cache Terraform
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: terraform-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: terraform-${{ runner.os }}-
+      - name: Restore Cache mix
+        uses: actions/cache@v2
+        with:
+          path: public
+          key: mix-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: mix-${{ runner.os }}-
+      - name: Run Terraform Plan
+        run: terraform plan -out tf.plan
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: public        
+
+  terraform-apply:
+    runs-on: ubuntu-latest
+    needs: [terraform-plan]
+    container:
+      image: fredsilvas/container_terraform_aws_cli
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore Cache Terraform
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: terraform-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: terraform-${{ runner.os }}-
+      - name: Restore Cache mix
+        uses: actions/cache@v2
+        with:
+          path: public
+          key: mix-${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          restore-keys: mix-${{ runner.os }}-
+      - name: Run Terraform Apply
+        run: terraform apply tf.plan
