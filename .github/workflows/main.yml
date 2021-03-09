@@ -14,6 +14,8 @@ jobs:
       image: fredsilvas/container_terraform_aws_cli
     steps:
       - uses: actions/checkout@v2
+      - name: Create Cache Terraform Dir
+        run: mkdir -p $TF_PLUGIN_CACHE_DIR
       - name: Cache Terraform
         uses: actions/cache@v1
         with:
