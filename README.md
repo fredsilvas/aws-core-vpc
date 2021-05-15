@@ -1,6 +1,6 @@
-# AWS - VPC
+# aws-core-vpc
 
-AWS VPC_PROD Terraform Project
+AWS VPC_TERRAFORM Terraform Project
 
 
 ## About
@@ -12,7 +12,7 @@ It contains/uses:
 - 4 subnets per AZ (1 public, 3 private)
 
 The Terraform state file is stored in S3 Bucket, so it is necessary create the bucket before run this project (see backend.tf).
-Also it was created based on AWS South America Region(sa-east-1), with three Availability Zones(sa-east-1a, sa-east-1b, sa-east-1c).
+Also it was created based on AWS South America Region(us-east-1), with three Availability Zones(us-east-1a, us-east-1b, us-east-1c).
 
 
 ## Notes

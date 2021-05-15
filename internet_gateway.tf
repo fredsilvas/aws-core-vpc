@@ -1,10 +1,10 @@
 ##############################################################################################
 ### INTERNET GATEWAY
 resource "aws_internet_gateway" "internet_gateway" {
-  vpc_id = aws_vpc.vpc_prod.id
+  vpc_id = aws_vpc.vpc_terraform.id
 
   tags = {
-    Name             = "internet_gateway_vpc_prod"
+    Name             = "internet_gateway_vpc_terraform"
     CentroDeCusto    = var.centro_de_custo
     Proprietario     = var.proprietario
     ChamadoInterno   = var.chamado_interno

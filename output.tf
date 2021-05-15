@@ -8,16 +8,16 @@ output "internet_gateway" {
   value = "criado com sucesso!"
 }
 
-output "vpc_prod_cidr" {
-  value = aws_vpc.vpc_prod.cidr_block
+output "vpc_terraform_cidr" {
+  value = aws_vpc.vpc_terraform.cidr_block
 }
 
-output "vpc_prod_id" {
-  value = aws_vpc.vpc_prod.id
+output "vpc_terraform_id" {
+  value = aws_vpc.vpc_terraform.id
 }
 
-output "vpc_prod" {
-  value = "VPC_PROD criada com sucesso!"
+output "vpc_terraform" {
+  value = "VPC_TERRAFORM criada com sucesso!"
 }
 
 

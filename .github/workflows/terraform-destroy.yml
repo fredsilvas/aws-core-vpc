@@ -10,7 +10,7 @@ jobs:
   terraform-destroy:
     runs-on: ubuntu-latest
     container:
-      image: fredsilvas/container_terraform_aws_cli
+      image: docker pull fredsilvas/alpine-terraform-aws-openvpn:1.0.0
     steps:
       - uses: actions/checkout@v2
 

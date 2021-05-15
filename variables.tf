@@ -27,12 +27,12 @@ variable "ambiente" {
 
 variable "projeto" {
   description = "Projeto"
-  default     = "VPC PROD"
+  default     = "VPC TERRAFORM"
 }
 
 variable "vpc" {
   description = "VPC em que este projeto está rodando"
-  default     = "VPC_PROD"
+  default     = "VPC_TERRAFORM"
 }
 
 variable "responsavel_infra" {
@@ -50,8 +50,8 @@ variable "responsavel_db" {
   default     = ""
 }
 
-variable "vpc_prod_cidr" {
-  description = "range of ipv4 address for vpc_prod"
+variable "vpc_terraform_cidr" {
+  description = "range of ipv4 address for vpc_terraform"
   default     = "10.10.0.0/16"
 }
 
@@ -96,12 +96,12 @@ variable "prod_private_data_subnets_cidr" {
 ### VARIAVEIS AWS
 variable "aws_region" {
   description = "vpc aws region"
-  default     = "sa-east-1"
+  default     = "us-east-1"
 }
 
 variable "az" {
   description = "names of availabity zones"
-  default     = ["sa-east-1a", "sa-east-1b", "sa-east-1c"]
+  default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
 
 variable "az_count" {

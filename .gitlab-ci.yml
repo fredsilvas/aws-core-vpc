@@ -10,7 +10,7 @@ cache:
   paths:
     - .terraform
 
-    
+
 stages:
   - stg_init
   - stg_validate
