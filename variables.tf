@@ -2,7 +2,7 @@
 ### VARIAVEIS PROJETO
 variable "data_criacao" {
   description = "creation date of this project. padrão dd-mm-yyyy-hh-mm-ss(horario local)"
-  default     = "26-10-2020-17-06-00"
+  default     = "14-05-2020-21-58-00"
 }
 
 variable "centro_de_custo" {
