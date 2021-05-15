@@ -70,23 +70,23 @@ variable "az3_cidr" {
   default     = "10.10.128.0/18"
 }
 
-variable "prod_public_subnets_cidr" {
-  description = "range of ipv4 address prod_public_subnet for each az"
+variable "terraform_public_subnets_cidr" {
+  description = "range of ipv4 address terraform_public_subnet for each az"
   default     = ["10.10.0.0/21", "10.10.64.0/21", "10.10.128.0/21"]
 }
 
-variable "prod_private_web_subnets_cidr" {
-  description = "range of ipv4 address prod_private_web_subnet for each az"
+variable "terraform_private_web_subnets_cidr" {
+  description = "range of ipv4 address terraform_private_web_subnet for each az"
   default     = ["10.10.16.0/21", "10.10.80.0/21", "10.10.144.0/21"]
 }
 
-variable "prod_private_app_subnets_cidr" {
-  description = "range of ipv4 address prod_private_app_subnet for each az"
+variable "terraform_private_app_subnets_cidr" {
+  description = "range of ipv4 address terraform_private_app_subnet for each az"
   default     = ["10.10.32.0/21", "10.10.96.0/21", "10.10.160.0/21"]
 }
 
-variable "prod_private_data_subnets_cidr" {
-  description = "range of ipv4 address prod_private_data_subnet for each az"
+variable "terraform_private_data_subnets_cidr" {
+  description = "range of ipv4 address terraform_private_data_subnet for each az"
   default     = ["10.10.48.0/21", "10.10.112.0/21", "10.10.176.0/21"]
 }
 
