@@ -10,7 +10,7 @@ jobs:
   terraform-deploy:
     runs-on: ubuntu-latest
     container:
-      image: docker pull fredsilvas/alpine-terraform-aws-openvpn:1.0.0
+      image: fredsilvas/alpine-terraform-aws-openvpn:1.0.0
     steps:
       - uses: actions/checkout@v2
       # - name: Create Cache Terraform Dir
